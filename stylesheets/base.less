@@ -86,9 +86,17 @@
   background-color: @syntax-selection-color;
 }
 
+
+/**
+ * Packages
+ */
 //@todo should this go here?
 .bracket-matcher {
   border-bottom: 1px solid @very-light-gray;
+}
+
+.spell-check .misspelling {
+  border-bottom: 1px dashed @darkRed;
 }
 
 //
@@ -251,6 +259,10 @@
       color: @light-gray;
     }
   }
+
+  &.quote {
+    color: @light-gray;
+  }
 }
 
 .entity {
@@ -331,26 +343,27 @@
 }
 
 .markup {
+  color: @mercury;
+
   &.bold {
-    color: @orange;
-    font-style: bold;
+    font-weight: 800;
+  }
+
+  &.italic {
+    font-style: italic;
   }
 
   &.changed {
-    color: @purple;
+    color: @green;
   }
 
   &.deleted {
     color: @red;
   }
 
-  &.italic {
-    color: @purple;
-    font-style: italic;
-  }
-
-  &.heading .punctuation.definition.heading {
-    color: @blue;
+  &.heading {
+    color: @mercury;
+    font-weight: 800;
   }
 
   &.inserted {
@@ -358,22 +371,33 @@
   }
 
   &.list {
-    color: @red;
+    color: @light-gray;
   }
 
   &.quote {
-    color: @orange;
+    color: @light-gray;
   }
 
   &.raw.inline {
-    color: @green;
+    color: @light-gray;
+  }
+
+  &.raw {
+    color: @light-gray;
   }
 }
 
-.source.gfm .markup {
-  -webkit-font-smoothing: auto;
-  &.heading {
-    color: @green;
+.source .gfm {
+  -webkit-font-smoothing: antialiased;
+}
+
+.gfm {
+  &.comment {
+    color: @mercury;
+  }
+
+  &.list {
+    color: @light-gray;
   }
 }
 
