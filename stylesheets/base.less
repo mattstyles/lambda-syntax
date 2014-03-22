@@ -1,0 +1,382 @@
+@import "syntax-variables";
+
+.editor-colors {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+}
+
+.editor {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .scroll-view {
+    padding-left: .5em;
+  }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+    overflow:visible;
+
+    .line-number {
+      &.cursor-line {
+        position:relative;
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+
+        // Right arrow - only works at a fixed text size, about 14px, adjust the border top & bottom for different sizes
+        &:before {
+          display: none;
+          content: ' ';
+          position:absolute;
+          top: 0;
+          right: -5px;
+          height: 0px;
+          background-color: transparent;
+          width: 0px;
+
+          border-top: 9px solid transparent;
+          border-bottom: 9px solid transparent;
+          border-left: 5px solid @syntax-gutter-background-color-selected;
+        }
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-gray;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+}
+
+.editor .search-results .marker .region {
+  background-color: @selectionYellow;
+}
+
+.editor .search-results .marker.current-result .region {
+  background-color: @syntax-selection-color;
+}
+
+//@todo should this go here?
+.bracket-matcher {
+  border-bottom: 1px solid @very-light-gray;
+}
+
+//
+// Syntax
+// ---
+
+.comment {
+  color: @medium-gray;
+}
+
+.keyword {
+  color: @mercury;
+
+  &.control {
+    color: @yellow;
+  }
+
+  &.operator {
+    color: @syntax-text-color;
+  }
+
+  &.other.special-method {
+    color: @blue;
+  }
+
+  &.other.unit {
+    color: @mercury;
+  }
+
+  &.regexp {
+    color: @red;
+  }
+}
+
+.storage {
+  color: @yellow;
+}
+
+.constant {
+  color: @mercury;
+
+  &.character.escape {
+    color: @mercury;
+  }
+
+  &.numeric {
+    color: @mercury;
+  }
+
+  &.other.color {
+    color: @mercury;
+  }
+
+  &.other.symbol {
+    color: @mercury;
+  }
+
+  &.regexp {
+    color: @red;
+  }
+}
+
+.variable {
+  color: @yellow;
+
+  &.interpolation {
+    color: darken(@red, 10%);
+  }
+
+  &.parameter.function {
+    color: @syntax-text-color;
+  }
+
+  &.less {
+    color: @blue;
+  }
+}
+
+.invalid.illegal {
+  background-color: @red;
+  color: @syntax-background-color;
+}
+
+.string {
+  color: @blue;
+
+  &.regexp {
+    color: @red;
+
+    .source.ruby.embedded {
+      color: @red;
+    }
+  }
+
+  &.other.link {
+    color: @red;
+  }
+}
+
+.punctuation {
+  &.definition {
+    &.comment {
+      color: @medium-gray;
+    }
+
+    &.tag {
+      color: @light-gray;
+    }
+
+    &.keyword {
+      color: @yellow;
+    }
+
+    &.string,
+    &.variable,
+    &.parameters,
+    &.array {
+      color: @light-gray;
+    }
+
+    &.heading,
+    &.identity {
+      color: @blue;
+    }
+
+    &.bold {
+      color: @mercury;
+      font-style: bold;
+    }
+
+    &.italic {
+      color: @purple;
+      font-style: italic;
+    }
+
+    &.regexp {
+      color: @red;
+    }
+  }
+
+  &.section.embedded {
+    color: darken(@red, 10%);
+  }
+
+}
+
+.support {
+  &.class {
+    color: @mercury;
+  }
+
+  &.function  {
+    color: @blue;
+
+    &.any-method {
+      color: @blue;
+    }
+
+    &.less {
+      color: @light-gray;
+    }
+  }
+}
+
+.entity {
+  &.name.function {
+    color: @mercury;
+  }
+
+  &.name.type {
+    color: @darkRed;
+  }
+
+  &.name.class, &.name.type.class {
+    color: @light-orange;
+  }
+
+  &.name.section {
+    color: @blue;
+  }
+
+  &.name.tag {
+    color: @light-gray;
+    // text-decoration: underline;
+  }
+
+  &.other.inherited-class {
+    color: @green;
+  }
+
+  &.other.attribute-name {
+    color: @yellow;
+
+    &.id {
+      color: @yellow;
+    }
+  }
+}
+
+.meta {
+  color: @light-gray;
+  &.class {
+    color: @red;
+  }
+
+  &.link {
+    color: @blue;
+  }
+
+  &.require {
+    color: @blue;
+  }
+
+  &.selector {
+    color: @light-gray;
+  }
+
+  &.separator {
+    background-color: @gray;
+    color: @syntax-text-color;
+  }
+
+  &.tag.sgml {
+    color: @darkRed;
+  }
+
+  &.id.toc-list {
+    color: @blue;
+  }
+}
+
+.regexp {
+  &.constant.character {
+    color: @red;
+  }
+}
+
+.none {
+  color: @syntax-text-color;
+}
+
+.markup {
+  &.bold {
+    color: @orange;
+    font-style: bold;
+  }
+
+  &.changed {
+    color: @purple;
+  }
+
+  &.deleted {
+    color: @red;
+  }
+
+  &.italic {
+    color: @purple;
+    font-style: italic;
+  }
+
+  &.heading .punctuation.definition.heading {
+    color: @blue;
+  }
+
+  &.inserted {
+    color: @green;
+  }
+
+  &.list {
+    color: @red;
+  }
+
+  &.quote {
+    color: @orange;
+  }
+
+  &.raw.inline {
+    color: @green;
+  }
+}
+
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+  &.heading {
+    color: @green;
+  }
+}
+
+.editor.mini .scroll-view {
+  padding-left: 1px;
+}
