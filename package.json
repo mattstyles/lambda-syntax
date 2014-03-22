@@ -1,7 +1,7 @@
 {
   "name": "lamdba-syntax",
   "theme": "syntax",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Minimalist dark low contrast syntax theme to complement lambda-ui",
   "repository": "https://github.com/mattstyles/lamdba-syntax",
   "license": "MIT",
