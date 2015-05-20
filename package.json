@@ -5,6 +5,9 @@
   "description": "Minimalist dark low contrast syntax theme to complement lambda-ui",
   "repository": "https://github.com/mattstyles/lambda-syntax",
   "license": "MIT",
+  "scripts": {
+    "prepublish": "rm -rf ./styles && cp -r ./stylesheets ./styles"
+  },
   "engines": {
     "atom": ">0.50.0"
   }

@@ -1,11 +1,7 @@
 @import "syntax-variables";
 
-.editor-colors {
-  background-color: @syntax-background-color;
-  color: @syntax-text-color;
-}
-
-.editor {
+:host,
+atom-text-editor {
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 
@@ -73,25 +69,25 @@
     color: @syntax-cursor-color;
   }
 
-  .selection .region {
+  .bracket-matcher .region {
     background-color: @syntax-selection-color;
   }
 }
 
-.editor .search-results .marker .region {
-  background-color: @selectionYellow;
+:host,
+atom-text-editor .search-results {
+  .marker .region {
+    background-color: @selectionYellow;
+  }
+  .marker.current-result .region {
+    background-color: @syntax-selection-color;
+  }
 }
-
-.editor .search-results .marker.current-result .region {
-  background-color: @syntax-selection-color;
-}
-
 
 /**
  * Packages
  */
-//@todo should this go here?
-.bracket-matcher {
+.bracket-matcher .region {
   border-bottom: 1px solid @very-light-gray;
 }
 
@@ -401,6 +397,6 @@
   }
 }
 
-.editor.mini .scroll-view {
+atom-text-editor[mini] .scroll-view {
   padding-left: 1px;
 }
