@@ -68,10 +68,6 @@ atom-text-editor {
   .cursor {
     color: @syntax-cursor-color;
   }
-
-  .bracket-matcher .region {
-    background-color: @syntax-selection-color;
-  }
 }
 
 :host,
@@ -89,6 +85,7 @@ atom-text-editor .search-results {
  */
 .bracket-matcher .region {
   border-bottom: 1px solid @very-light-gray;
+  background: rgba( 255, 255, 255, .25 );
 }
 
 .spell-check .misspelling {
